@@ -1,40 +1,9 @@
 Pig-Scripting
 =============
 
-A = LOAD '/home/cloudera/student.txt' Using PigStorage AS (student:chararray, a2:int);
+Use of a Pig Script to analyse two datasets and Print the student names of those who have passed an exam.
 
+The two datasets are:
 
-
---DUMP A;
-
-
-
-B = LOAD '/home/cloudera/results.txt' Using PigStorage AS (b1:int, result:chararray);
-
-
-
---DUMP B;
-
-
-
-C = JOIN A BY a2, B BY b1;
-
-
-
---DUMP C;
-
-
-
-D = FOREACH C generate student, result;
-
-
-
---DUMP D;
-
-
-
-E = FILTER D BY result == 'pass';
-
-
-
-DUMP E;
+Student: This dataset contains the name and roll number of students in a class
+Results: This dataset contains the roll number and result (Pass or Fail) of students 
